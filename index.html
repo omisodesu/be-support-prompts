@@ -37,6 +37,11 @@ pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--f-mono
 .copy{align-self:stretch;appearance:none;border:0;border-radius:8px;background:var(--acc);color:var(--acc-ink);font:700 1rem var(--f-body);padding:12px;cursor:pointer}
 .copy.done{background:var(--fg);color:var(--bg)}
 .copy:focus-visible,.jump a:focus-visible,.tool:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.tbl{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:700;border-bottom:1.5px solid var(--fg)}
+.note{margin:0;color:var(--sub);font-size:.78rem}
 footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding-top:12px}
 </style>
 </head>
@@ -50,7 +55,7 @@ footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding
 <div class="howto"><strong>使い方</strong>
   <ol><li>番号のボタンで、使うプロンプトへ移動</li><li>「コピーする」を押す</li><li>アプリ（NotebookLM・Claude・ChatGPT）に貼り付けて送る</li><li>（　）の部分は、自分の内容に書き換える</li></ol>
 </div>
-<nav class="jump" aria-label="プロンプト番号"><a href="#p1">1</a><a href="#p1-2">1-2</a><a href="#p1-3">1-3</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a><a href="#p16">16</a></nav>
+<nav class="jump" aria-label="プロンプト番号"><a href="#p1">1</a><a href="#p1-2">1-2</a><a href="#p1-3">1-3</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p7-2">7-2</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a><a href="#p16">16</a></nav>
 <section id="src"><h2><span class="eyebrow">演習①で使う</span>NotebookLMに入れるソース</h2>
 <article class="card"><div class="head"><span class="no">ソース1</span></div><h3>カタログPDF（ウェブサイトとして追加するか、開いて保存してから追加）</h3>
 <pre id="s1">https://www.konicaminolta.jp/business/products/copiers/color/bizhub-c451i-c361i-c301i-c251i/pdf/bizhub-c451i-c361i-c301i-c251i.pdf</pre>
@@ -151,7 +156,32 @@ footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding
 ・各項目に「なぜ確認が必要か」と出典を付ける
 ・最大10項目、□ 付きのリストで</pre>
   <button type="button" class="copy" data-target="t6" id="b6">コピーする</button>
-</article></section><section id="k2"><h2><span class="eyebrow">2コマ目</span>営業トーク力の強化</h2><article class="card" id="p7">
+</article></section><section id="k2"><h2><span class="eyebrow">2コマ目</span>営業トーク力の強化</h2><article class="card" id="cmp"><div class="head"><span class="no">参考</span></div>
+  <h3>今の機械（C250i）と提案機（C251i）の比較　カタログ原本で照合済み</h3>
+  <div class="tbl"><table>
+  <thead><tr><th>項目</th><th>C250i（6年前）</th><th>C251i（提案機）</th><th>差</th></tr></thead>
+  <tbody>
+  <tr><td>連続複写速度（A4）</td><td>25枚／分</td><td>25枚／分</td><td>同じ</td></tr>
+  <tr><td>ウォームアップ</td><td>カラー13秒／モノクロ11秒以下</td><td>11秒以下</td><td>カラーが2秒短い</td></tr>
+  <tr><td>ファーストコピー</td><td>カラー6.9秒／モノクロ5.2秒以下</td><td>カラー6.9秒／モノクロ5.2秒以下</td><td>同じ</td></tr>
+  <tr><td>年間消費電力（TEC値）</td><td>49kWh／年</td><td>49kWh／年</td><td>同じ</td></tr>
+  <tr><td>標準給紙容量</td><td>1,305枚</td><td>1,365枚</td><td>60枚多い</td></tr>
+  <tr><td>原稿送り装置</td><td>オプション</td><td>オプション</td><td>同じ</td></tr>
+  <tr><td>本体標準価格（税別）</td><td>1,250,000円</td><td>1,605,000円</td><td>355,000円高い</td></tr>
+  <tr><td>保守の最低料金（月）</td><td>2,650円</td><td>3,000円</td><td>350円高い</td></tr>
+  </tbody></table></div>
+  <pre id="tcmp">【今の機械と提案機の比較（カタログ記載値）】
+連続複写速度：どちらも25枚／分
+ウォームアップ：C250i カラー13秒／モノクロ11秒 → C251i 11秒
+ファーストコピー：どちらもカラー6.9秒／モノクロ5.2秒
+年間消費電力（TEC値）：どちらも49kWh／年
+標準給紙容量：C250i 1,305枚 → C251i 1,365枚
+原稿送り装置：どちらもオプション
+本体標準価格（税別）：C250i 1,250,000円 → C251i 1,605,000円
+保守の最低料金（月）：C250i 2,650円 → C251i 3,000円</pre>
+  <button type="button" class="copy" data-target="tcmp" id="bcmp">比較をコピーする</button>
+  <p class="note">出典：コニカミノルタ bizhub C360i/C300i/C250i カタログ（2022年5月現在）、bizhub C451i/C361i/C301i/C251i カタログ（2026年8月現在）</p>
+</article><article class="card" id="p7">
   <div class="head"><span class="no">No.7</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
   <h3>機能をお客様のメリットに変換する</h3>
   <pre id="t7">あなたは事務機器営業のトレーナーです。次の機能説明を、お客様にとってのメリットに言い換えてください。
@@ -161,6 +191,24 @@ footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding
 【お客様】金属加工・30名。朝と昼休み明けにコピーとスキャンが集中する
 【前提】1回あたり短縮できる待ち時間：○秒／1日の利用回数：○回／平均時給：○円（○は自分で入れる）</pre>
   <button type="button" class="copy" data-target="t7" id="b7">コピーする</button>
+</article><article class="card" id="p7-2">
+  <div class="head"><span class="no">No.7-2</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>正直な数字で計算し直す（No.7の続き）</h3>
+  <pre id="t7-2">さきほどのメリット変換を、今お使いの機械との「実際の差」で計算し直してください。
+
+【今の機械】bizhub C250i（6年前に導入）
+【カタログに書いてある差】
+・ウォームアップ：今の機械 カラー13秒／モノクロ11秒 → 提案機 11秒
+・カラーのファーストコピー：どちらも6.9秒
+・両面同時読み取り：どちらもオプションの原稿送り装置（DF-714）で対応
+・年間消費電力（TEC値）：どちらも49kWh／年
+【前提】ウォームアップは電源を入れた直後だけ（1日2回）、月20日、平均時給1,500円
+
+【出力】
+① 機能ごとの短縮時間と金額（計算式つき）
+② この数字で入れ替えを勧められるかの、正直な判断
+③ 数字以外で入れ替えを検討していただく理由を3つ（例：故障リスク、リース満了、保守・セキュリティ）。製品の機能を挙げる場合は、ファクトシートで確認できるものだけにする</pre>
+  <button type="button" class="copy" data-target="t7-2" id="b7-2">コピーする</button>
 </article><article class="card" id="p8">
   <div class="head"><span class="no">No.8</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
   <h3>反論処理スクリプトを作る</h3>
