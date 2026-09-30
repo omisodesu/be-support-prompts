@@ -50,7 +50,7 @@ footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding
 <div class="howto"><strong>使い方</strong>
   <ol><li>番号のボタンで、使うプロンプトへ移動</li><li>「コピーする」を押す</li><li>アプリ（NotebookLM・Claude・ChatGPT）に貼り付けて送る</li><li>（　）の部分は、自分の内容に書き換える</li></ol>
 </div>
-<nav class="jump" aria-label="プロンプト番号"><a href="#p1">1</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a><a href="#p16">16</a></nav>
+<nav class="jump" aria-label="プロンプト番号"><a href="#p1">1</a><a href="#p1-2">1-2</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a><a href="#p16">16</a></nav>
 <section id="src"><h2><span class="eyebrow">演習①で使う</span>NotebookLMに入れるソース</h2>
 <article class="card"><div class="head"><span class="no">ソース1</span></div><h3>カタログPDF（ウェブサイトとして追加するか、開いて保存してから追加）</h3>
 <pre id="s1">https://www.konicaminolta.jp/business/products/copiers/color/bizhub-c451i-c361i-c301i-c251i/pdf/bizhub-c451i-c361i-c301i-c251i.pdf</pre>
@@ -68,9 +68,15 @@ footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding
   <pre id="t1">このノートの資料だけを使って、bizhub C251i の営業用ファクトシートを作ってください。
 ・表形式：項目／内容／出典
 ・項目：コピー速度、ウォームアップ、ファーストコピー、原稿の読み取り（自動原稿送り装置の有無・速度）、給紙容量（標準と最大、それぞれの条件）、省エネ（TEC値）、セキュリティ、クラウド連携、保守サービス、本体価格
+・仕様表や価格表は4機種（C451i／C361i／C301i／C251i）が列に並んでいる。C251iの列（右端）の値を読むこと
 ・数値は資料の表記のまま。「オプション装着時」などの条件も省略しない
 ・資料に書かれていないことは「記載なし」と書く</pre>
   <button type="button" class="copy" data-target="t1" id="b1">コピーする</button>
+</article><article class="card" id="p1-2">
+  <div class="head"><span class="no">No.1-2</span><a class="tool" href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLMで使う ↗</a></div>
+  <h3>「記載なし」を聞き直す（No.1の続き）</h3>
+  <pre id="t1-2">「記載なし」とした項目を、仕様表・価格表のC251iの列でもう一度探してください。見つかったら表を直し、出典を付けてください。それでも無い項目だけ「記載なし」のままにしてください。</pre>
+  <button type="button" class="copy" data-target="t1-2" id="b1-2">コピーする</button>
 </article><article class="card" id="p2">
   <div class="head"><span class="no">No.2</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
   <h3>提案先の困りごとの仮説を立てる</h3>
