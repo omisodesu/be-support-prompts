@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>ビー・サポート研修 プロンプト集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDGothic:wght@400&display=swap">
+<style>
+*{box-sizing:border-box}
+/* 研修テキストの続きとして読む一列のノート。朱は番号とボタンだけ */
+:root{
+  --bg:#fbfbfa; --paper:#ffffff; --fg:#1f1f1f; --sub:#5f5b58; --line:#d9d5d2; --acc:#b8431e; --acc-ink:#ffffff; --code:#f4f2f0;
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif; --f-mono:"BIZ UDGothic","Hiragino Sans","Yu Gothic",monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161514;--paper:#1f1e1c;--fg:#ecebe9;--sub:#a9a4a0;--line:#3a3734;--acc:#e0714a;--acc-ink:#1a0f0a;--code:#262422;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161514;--paper:#1f1e1c;--fg:#ecebe9;--sub:#a9a4a0;--line:#3a3734;--acc:#e0714a;--acc-ink:#1a0f0a;--code:#262422;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.7;padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+header h1{font-size:1.45rem;line-height:1.35;margin:4px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--sub);font-size:.92rem}
+.kicker{color:var(--acc);font-weight:700;font-size:.8rem;letter-spacing:.06em}
+.howto{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:14px 16px;font-size:.92rem}
+.howto ol{margin:6px 0 0;padding-left:1.3em}
+.jump{display:flex;flex-wrap:wrap;gap:6px}
+.jump a{min-width:2.4em;text-align:center;padding:4px 0;border:1px solid var(--line);border-radius:6px;color:var(--fg);text-decoration:none;font-variant-numeric:tabular-nums;background:var(--paper)}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-size:1.15rem;margin:8px 0 0;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.eyebrow{font-size:.78rem;color:var(--acc);letter-spacing:.06em}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;scroll-margin-top:12px;min-width:0}
+.head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.no{font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.tool{font-size:.85rem;color:var(--sub);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+h3{margin:0;font-size:1.02rem;line-height:1.45}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--f-mono);font-size:.86rem;line-height:1.65;background:var(--code);border-radius:8px;padding:12px;user-select:all;-webkit-user-select:all}
+.copy{align-self:stretch;appearance:none;border:0;border-radius:8px;background:var(--acc);color:var(--acc-ink);font:700 1rem var(--f-body);padding:12px;cursor:pointer}
+.copy.done{background:var(--fg);color:var(--bg)}
+.copy:focus-visible,.jump a:focus-visible,.tool:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">2026年10月1日　営業職向け 生成AI業務活用研修（中級）Day1</div>
+  <h1>ビー・サポート様 研修用プロンプト集</h1>
+  <p>スライドの「プロンプト No.」と同じ番号です。</p>
+</header>
+<div class="howto"><strong>使い方</strong>
+  <ol><li>番号のボタンで、使うプロンプトへ移動</li><li>「コピーする」を押す</li><li>アプリ（NotebookLM・Claude・ChatGPT）に貼り付けて送る</li><li>（　）の部分は、自分の内容に書き換える</li></ol>
+</div>
+<nav class="jump" aria-label="プロンプト番号"><a href="#p1">1</a><a href="#p2">2</a><a href="#p3">3</a><a href="#p4">4</a><a href="#p5">5</a><a href="#p6">6</a><a href="#p7">7</a><a href="#p8">8</a><a href="#p9">9</a><a href="#p10">10</a><a href="#p11">11</a><a href="#p12">12</a><a href="#p13">13</a><a href="#p14">14</a><a href="#p15">15</a><a href="#p16">16</a></nav>
+<section id="k1"><h2><span class="eyebrow">1コマ目</span>顧客理解と商談準備</h2><article class="card" id="p1">
+  <div class="head"><span class="no">No.1</span><a class="tool" href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLMで使う ↗</a></div>
+  <h3>製品ファクトシートを作る</h3>
+  <pre id="t1">このノートの資料だけを使って、bizhub C251i の営業用ファクトシートを作ってください。
+・表形式：項目／内容／出典
+・項目：コピー速度、ウォームアップ、ファーストコピー、原稿の読み取り（自動原稿送り装置の有無・速度）、給紙容量（標準と最大、それぞれの条件）、省エネ（TEC値）、セキュリティ、クラウド連携、保守サービス、本体価格
+・数値は資料の表記のまま。「オプション装着時」などの条件も省略しない
+・資料に書かれていないことは「記載なし」と書く</pre>
+  <button type="button" class="copy" data-target="t1" id="b1">コピーする</button>
+</article><article class="card" id="p2">
+  <div class="head"><span class="no">No.2</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>提案先の困りごとの仮説を立てる</h3>
+  <pre id="t2">あなたは事務機器の法人営業のアシスタントです。次の会社に複合機の入れ替えを提案します。
+この業種・規模の会社が、コピー・プリント・スキャンで抱えやすい困りごとを5つ挙げ、それぞれに「確かめるための質問」を1つずつ付けてください。
+
+【提案先】
+業種：金属加工（製造業）
+従業員：30名（事務所5名・現場25名）
+現行機：6年前に導入したカラー複合機（リース満了まで1年）
+特徴：図面をA3で印刷することが多い</pre>
+  <button type="button" class="copy" data-target="t2" id="b2">コピーする</button>
+</article><article class="card" id="p3">
+  <div class="head"><span class="no">No.3</span><a class="tool" href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLMで使う ↗</a></div>
+  <h3>提案書づくり用の指示文を作らせる</h3>
+  <pre id="t3">次のお客様に bizhub C251i を提案します。
+このノートの資料から、お客様の困りごとの解決につながる情報だけを選び、別のAIに提案資料を作らせるための「指示文」を作ってください。
+・使ってよい事実（数値・機能）を箇条書きにし、各項目に出典を付ける
+・資料にない数値や効果は入れない
+・オプションが必要な機能は、そのことを明記する
+
+【お客様の情報】
+（No.2 でClaudeが出した困りごとを、ここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="t3" id="b3">コピーする</button>
+</article><article class="card" id="p4">
+  <div class="head"><span class="no">No.4</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>統一の型で提案資料を作る</h3>
+  <pre id="t4">あなたは事務機器の法人営業です。下の【素材】だけを使い、【型】に沿って提案資料の各ページの文章を作ってください。
+
+【型】
+1 表紙（提案タイトル）
+2 お客様の現状と課題
+3 ご提案機種
+4 課題と解決（課題 → 機能 → 効果 の表）
+5 導入効果（数字で）
+6 導入までの流れ
+7 次のステップ
+
+【ルール】
+・素材にない数値は書かない
+・1ページ3行以内、お客様の言葉で書く
+・オプションが必要なものは「オプション」と明記
+
+【素材】
+（No.3 でNotebookLMが作った指示文を、ここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="t4" id="b4">コピーする</button>
+</article><article class="card" id="p5">
+  <div class="head"><span class="no">No.5</span><a class="tool" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPTで使う ↗</a></div>
+  <h3>提案資料用の利用シーン画像</h3>
+  <pre id="t5">提案資料に入れるイラストを作ってください。
+場面：中小の製造業の事務所。社員が複合機の前で、図面をスキャンしてスマホで確認している様子。
+雰囲気：明るく清潔。人物は作業着の男女2名。
+条件：文字・ロゴ・メーカー名は入れない。複合機は特定メーカーに見えないシンプルな形に。横長。</pre>
+  <button type="button" class="copy" data-target="t5" id="b5">コピーする</button>
+</article><article class="card" id="p6">
+  <div class="head"><span class="no">No.6</span><a class="tool" href="https://notebooklm.google.com/" target="_blank" rel="noopener">NotebookLMで使う ↗</a></div>
+  <h3>訪問前チェックリストを作る</h3>
+  <pre id="t6">上のお客様に C251i を提案する前に、訪問で確認すべきことをチェックリストにしてください。
+・資料の中で「オプション」「条件付き」「〜時」と書かれている項目を優先する
+・各項目に「なぜ確認が必要か」と出典を付ける
+・最大10項目、□ 付きのリストで</pre>
+  <button type="button" class="copy" data-target="t6" id="b6">コピーする</button>
+</article></section><section id="k2"><h2><span class="eyebrow">2コマ目</span>営業トーク力の強化</h2><article class="card" id="p7">
+  <div class="head"><span class="no">No.7</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>機能をお客様のメリットに変換する</h3>
+  <pre id="t7">あなたは事務機器営業のトレーナーです。次の機能説明を、お客様にとってのメリットに言い換えてください。
+①機能 → ②お客様の得 → ③数字での見せ方 の3段で書き、③は【前提】から計算して計算式も示してください。
+
+【機能】ウォームアップ11秒以下、カラーのファーストコピー6.9秒以下、両面同時読み取り（オプションの原稿送り装置装着時）
+【お客様】金属加工・30名。朝と昼休み明けにコピーとスキャンが集中する
+【前提】1回あたり短縮できる待ち時間：○秒／1日の利用回数：○回／平均時給：○円（○は自分で入れる）</pre>
+  <button type="button" class="copy" data-target="t7" id="b7">コピーする</button>
+</article><article class="card" id="p8">
+  <div class="head"><span class="no">No.8</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>反論処理スクリプトを作る</h3>
+  <pre id="t8">あなたはベテランの事務機器営業マネージャーです。リース満了1年前のお客様（社長）に入れ替えを提案したときに出やすい反論への、切り返しスクリプトを作ってください。
+
+【反論】
+①まだ壊れていない
+②再リースで安く使い続けたい
+③今の機械で十分
+④高い
+⑤会長（経理）に相談する
+
+【形式】反論ごとに
+・相手の本音（推測）
+・切り返しトーク（30秒で話せる長さ）
+・次に聞く質問
+【使ってよい製品情報】
+（No.1 のファクトシートを貼り付け）</pre>
+  <button type="button" class="copy" data-target="t8" id="b8">コピーする</button>
+</article><article class="card" id="p9">
+  <div class="head"><span class="no">No.9</span><a class="tool" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPTで使う ↗</a></div>
+  <h3>音声ロープレの役づくり（先に文字で送る）</h3>
+  <pre id="t9">これからロールプレイをします。あなたは金属加工会社（従業員30名）の社長です。6年前に入れたカラー複合機のリース満了が1年後に迫っています。今の機械に大きな不満はなく、コストは上げたくないと考えています。私は事務機器の営業担当です。
+・社長らしく短く話し、ときどき反論してください（例：まだ壊れてない、再リースでいい）
+・私の説明が具体的で納得できたら、少しずつ前向きになってください
+・私が「終了」と言ったら役を終えてください
+準備ができたら「どうぞ」とだけ答えてください。</pre>
+  <button type="button" class="copy" data-target="t9" id="b9">コピーする</button>
+</article><article class="card" id="p10">
+  <div class="head"><span class="no">No.10</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>ロープレを採点基準で評価する</h3>
+  <pre id="t10">あなたは事務機器営業のトレーナーです。下の商談の書き起こしを【採点基準】で評価してください。
+
+【採点基準】各20点・合計100点
+1 ヒアリング：お客様の現状・困りごとを質問で引き出せたか
+2 メリット変換：機能ではなく、お客様の得と数字で話せたか
+3 反論対応：反論の理由を確かめ、根拠を示して答えたか
+4 正確さ：製品情報に誤りや言い過ぎがないか
+5 次の約束：次の行動（日時・内容）を決められたか
+
+【出力】
+①項目別の点数と根拠（発言を引用）
+②良かった点3つ
+③改善点3つ（言い換え例つき）
+④次のロープレで試す一言
+
+【書き起こし】
+（ChatGPTの会話をここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="t10" id="b10">コピーする</button>
+</article><article class="card" id="p11">
+  <div class="head"><span class="no">No.11</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>想定問答集にまとめる</h3>
+  <pre id="t11">ここまでの反論と切り返し、ロープレで出た質問をまとめて「bizhub C251i 入れ替え提案 想定問答集」を作ってください。
+・10問
+・形式：質問／回答（30秒で話せる長さ）／根拠（ファクトシートの項目）／言ってはいけないこと</pre>
+  <button type="button" class="copy" data-target="t11" id="b11">コピーする</button>
+</article></section><section id="k3"><h2><span class="eyebrow">3コマ目</span>フォローアップと関係構築</h2><article class="card" id="p12">
+  <div class="head"><span class="no">No.12</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>シーン別フォローメールを作る</h3>
+  <pre id="t12">あなたは事務機器営業のアシスタントです。【商談メモ】をもとに、【場面】に合うメールを作ってください。
+・件名と本文（250字以内）
+・最後に、次に取るべき行動を1行で提案
+
+【場面】（1つ選ぶ）訪問当日のお礼／見積提出から3日後／返事が2週間ない／リース満了1年前のご案内
+
+【商談メモ】
+○○工業 ○○社長。C251iを提案。A3の図面印刷が多く、スキャンはほぼ使っていない。見積は来週提出。決算は3月。
+※実在の会社名・個人名は入れない</pre>
+  <button type="button" class="copy" data-target="t12" id="b12">コピーする</button>
+</article><article class="card" id="p13">
+  <div class="head"><span class="no">No.13</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>お客様の「関心タグ」を設計する</h3>
+  <pre id="t13">あなたは営業企画の担当です。複合機・ビジネスホン・ネットワーク機器・販売管理システムを扱う営業が、お客様ごとの関心を管理するための「関心タグ」を作ってください。
+・10〜12個
+・例：補助金、新製品、制度改正（インボイス等）、保守期限、セキュリティ
+・各タグに「このタグのお客様に送ると喜ばれる情報の例」を1つ
+・表形式で</pre>
+  <button type="button" class="copy" data-target="t13" id="b13">コピーする</button>
+</article><article class="card" id="p14">
+  <div class="head"><span class="no">No.14</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>関係づくりのきっかけを出す</h3>
+  <pre id="t14">次のお客様との「売り込みではない接点」のきっかけを5つ提案してください。季節の行事、制度の変更、業界のニュース、お客様の決算時期などから考え、それぞれ「話しかけの一言」を付けてください。
+
+【お客様】金属加工・30名・決算3月・関心タグ：補助金、セキュリティ
+（架空のお客様です）</pre>
+  <button type="button" class="copy" data-target="t14" id="b14">コピーする</button>
+</article><article class="card" id="p15">
+  <div class="head"><span class="no">No.15</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>顧客接点シナリオを設計する</h3>
+  <pre id="t15">リース満了の24か月前から満了までの、お客様との接点計画を表にしてください。
+・列：時期／目的／手段（訪問・電話・メール・DM）／話すこと・送る内容／使う関心タグ
+・8〜10行
+・売り込みは満了12か月前から。それまでは情報提供と関係づくり
+
+【お客様】金属加工・30名・決算3月・関心タグ：補助金、セキュリティ（架空）</pre>
+  <button type="button" class="copy" data-target="t15" id="b15">コピーする</button>
+</article></section><section id="k4"><h2><span class="eyebrow">総合実践演習</span>商談準備シートにまとめる</h2><article class="card" id="p16">
+  <div class="head"><span class="no">No.16</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>成果物一式を1つの「商談準備シート」にまとめる</h3>
+  <pre id="t16">以下の成果物を、「商談準備シート（○○精工様向け・練習用）」として1つの文書に整理してください。
+
+【見出し】
+1 企業調査サマリー（困りごとの仮説と確かめる質問）
+2 訪問前チェックリスト
+3 提案資料の要点（7ページの型）
+4 反論処理と想定問答
+5 フォローメールと接点計画
+
+【ルール】
+・内容は変えずに整理する。重複は削る
+・足りない項目、数字の根拠がない箇所には【要確認】と書く
+
+【成果物】
+（今日作ったものを、ここに順番に貼り付け）</pre>
+  <button type="button" class="copy" data-target="t16" id="b16">コピーする</button>
+</article></section>
+<footer>題材：コニカミノルタ bizhub C251i 公開カタログ（<a href="https://www.konicaminolta.jp/business/products/copiers/color/bizhub-c451i-c361i-c301i-c251i/index.html" target="_blank" rel="noopener" style="color:inherit">製品ページ</a>）。提案先はすべて架空です。実在のお客様の名前・連絡先・金額は入力しないでください。<br>がだんだん株式会社</footer>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target), text=el.textContent;
+    function ok(){b.textContent='コピーしました';b.classList.add('done');setTimeout(function(){b.textContent='コピーする';b.classList.remove('done')},2000)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='選択しました。長押しでコピー'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fallback)}else{fallback()}
+  });
+});
+</script>
+</body>
+</html>
