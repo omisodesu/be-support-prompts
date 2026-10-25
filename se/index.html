@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>SE・開発向け研修 プロンプト集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDGothic:wght@400&display=swap">
+<style>
+/* 研修テキストの続きとして読む一列のノート。朱は番号とボタンだけ */
+:root{
+  --bg:#fbfbfa; --paper:#ffffff; --fg:#1f1f1f; --sub:#5f5b58; --line:#d9d5d2; --acc:#b8431e; --acc-ink:#ffffff; --code:#f4f2f0;
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif; --f-mono:"BIZ UDGothic","Hiragino Sans","Yu Gothic",monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161514;--paper:#1f1e1c;--fg:#ecebe9;--sub:#a9a4a0;--line:#3a3734;--acc:#e0714a;--acc-ink:#1a0f0a;--code:#262422;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161514;--paper:#1f1e1c;--fg:#ecebe9;--sub:#a9a4a0;--line:#3a3734;--acc:#e0714a;--acc-ink:#1a0f0a;--code:#262422;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.7;padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+header h1{font-size:1.45rem;line-height:1.35;margin:4px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--sub);font-size:.92rem}
+.kicker{color:var(--acc);font-weight:700;font-size:.8rem;letter-spacing:.06em}
+.howto{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:14px 16px;font-size:.92rem}
+.howto ol{margin:6px 0 0;padding-left:1.3em}
+.jump{display:flex;flex-wrap:wrap;gap:6px}
+.jump a{min-width:2.4em;text-align:center;padding:4px 0;border:1px solid var(--line);border-radius:6px;color:var(--fg);text-decoration:none;font-variant-numeric:tabular-nums;background:var(--paper)}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-size:1.15rem;margin:8px 0 0;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.eyebrow{font-size:.78rem;color:var(--acc);letter-spacing:.06em}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;scroll-margin-top:12px;min-width:0}
+.head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.no{font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.tool{font-size:.85rem;color:var(--sub);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+h3{margin:0;font-size:1.02rem;line-height:1.45}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--f-mono);font-size:.86rem;line-height:1.65;background:var(--code);border-radius:8px;padding:12px;user-select:all;-webkit-user-select:all}
+.copy{align-self:stretch;appearance:none;border:0;border-radius:8px;background:var(--acc);color:var(--acc-ink);font:700 1rem var(--f-body);padding:12px;cursor:pointer}
+.copy.done{background:var(--fg);color:var(--bg)}
+.copy:focus-visible,.jump a:focus-visible,.tool:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.tbl{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:700;border-bottom:1.5px solid var(--fg)}
+.note{margin:0;color:var(--sub);font-size:.78rem}
+footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding-top:12px}
+.demo{font-size:.78rem;color:var(--sub);border:1px dashed var(--line);border-radius:999px;padding:1px 9px}
+.file{font-size:.85rem;color:var(--sub)}
+.file a{color:var(--acc)}
+.dl{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.dl a{display:block;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--paper);color:var(--fg);text-decoration:none}
+.dl a span{display:block;font-size:.8rem;color:var(--sub)}
+*{box-sizing:border-box}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">SE・開発・インスト向け 生成AI業務活用研修</div>
+  <h1>ビー・サポート様 研修用プロンプト集</h1>
+  <p>スライドの「S1」「S2」…と同じ番号です。</p>
+</header>
+<div class="howto"><strong>使い方</strong>
+  <ol><li>演習で使うファイルを、下からダウンロードしておく</li><li>番号のボタンで、使うプロンプトへ移動し「コピーする」</li><li>Claudeに貼り付け、ファイルを添付して送る</li><li>（　）の部分は、自分の内容に書き換える</li></ol>
+</div>
+<nav class="jump" aria-label="プロンプト番号"><a href="#pS1">S1</a><a href="#pS2">S2</a><a href="#pS3">S3</a><a href="#pS4">S4</a><a href="#pS5">S5</a><a href="#pS6">S6</a><a href="#pS7">S7</a><a href="#pS8">S8</a><a href="#pS9">S9</a><a href="#pS10">S10</a><a href="#pS11">S11</a><a href="#pS12">S12</a><a href="#pS13">S13</a><a href="#pS14">S14</a><a href="#pS15">S15</a><a href="#pS16">S16</a></nav>
+<section id="files"><h2><span class="eyebrow">最初にダウンロード</span>演習で使うファイル（すべて架空）</h2>
+<ul class="dl"><li><a href="data/00_%E5%A5%91%E7%B4%84%E4%B8%80%E8%A6%A7%E3%81%AE%E5%86%99%E7%9C%9F_%E6%9E%B6%E7%A9%BA.jpg" download>00_契約一覧の写真_架空.jpg<span>S1・S14で使う（保守契約一覧の写真）</span></a></li><li><a href="data/01_%E3%82%B3%E3%83%94%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8_%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF%E3%83%BC%E6%98%8E%E7%B4%B0_2026%E5%B9%B49%E6%9C%88.xlsx" download>01_コピーチャージ_カウンター明細_2026年9月.xlsx<span>S2で使う</span></a></li><li><a href="data/02_%E5%8B%A4%E6%80%A0%E3%82%BD%E3%83%95%E3%83%88%E5%87%BA%E5%8A%9B_2026%E5%B9%B49%E6%9C%88.csv" download>02_勤怠ソフト出力_2026年9月.csv<span>S3で使う</span></a></li><li><a href="data/04_%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B%E6%9B%B8%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97_1%E5%9B%9E%E7%9B%AE.txt" download>04_打ち合わせ書き起こし_1回目.txt<span>S4で使う</span></a></li><li><a href="data/05_%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B%E6%9B%B8%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97_2%E5%9B%9E%E7%9B%AE.txt" download>05_打ち合わせ書き起こし_2回目.txt<span>S6で使う</span></a></li><li><a href="data/03_%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%B1%A5%E6%AD%B4_%E6%9E%B6%E7%A9%BA.csv" download>03_問い合わせ履歴_架空.csv<span>S9で使う</span></a></li><li><a href="data/06_%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E4%BB%95%E6%A7%98%E6%9B%B8_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E9%A3%9F%E5%93%81%E6%A7%98.docx" download>06_カスタマイズ仕様書_サンプル食品様.docx<span>S10で使う</span></a></li></ul></section>
+<section id="k1"><h2><span class="eyebrow">1コマ目</span>AIの基本と、事務の困りごとへの答え</h2><article class="card" id="pS1">
+  <div class="head"><span class="no">S1</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>写真の契約一覧を表にする（OCR）</h3>
+  <div class="file">添付するファイル：<a href="data/00_%E5%A5%91%E7%B4%84%E4%B8%80%E8%A6%A7%E3%81%AE%E5%86%99%E7%9C%9F_%E6%9E%B6%E7%A9%BA.jpg" download>00_契約一覧の写真_架空.jpg</a></div>
+  <pre id="tS1">添付の写真は、保守契約の一覧表です。内容を表にしてください。
+
+【ルール】
+・列は写真の見出しのとおりにする
+・読み取りに自信がない文字、手書きの書き込み、取り消し線は【要確認】と印を付け、どう読んだかを書く
+・写真にないことは書かない
+
+【表のあとに】
+満了日が2026年12月31日までで、「対応済」に印がない契約を一覧にしてください。</pre>
+  <button type="button" class="copy" data-target="tS1" id="bS1">コピーする</button>
+</article><article class="card" id="pS2">
+  <div class="head"><span class="no">S2</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>コピーチャージの明細を確認して、取り込み用に整える</h3>
+  <div class="file">添付するファイル：<a href="data/01_%E3%82%B3%E3%83%94%E3%83%BC%E3%83%81%E3%83%A3%E3%83%BC%E3%82%B8_%E3%82%AB%E3%82%A6%E3%83%B3%E3%82%BF%E3%83%BC%E6%98%8E%E7%B4%B0_2026%E5%B9%B49%E6%9C%88.xlsx" download>01_コピーチャージ_カウンター明細_2026年9月.xlsx</a></div>
+  <pre id="tS2">添付のExcelは、複合機のカウンター明細です。次の2つをしてください。
+
+① 確認
+各行について、次のような問題がないか調べ、問題のある行を表にしてください（行／得意先／問題／考えられる原因／お客様や業者に確認すること）。
+・今回カウンタ − 前回カウンタ と、枚数が合わない
+・枚数がマイナス、または空欄
+・同じ機番が2回出てくる
+・ほかの行と比べて、極端に多い枚数
+
+② 取り込み用の形に整える
+問題のない行だけを使い、2枚目のシート「事務コン取込形式」の決まりどおりに、CSVの中身を作ってください。問題のある行は入れず、最後に「除いた行」として一覧にしてください。</pre>
+  <button type="button" class="copy" data-target="tS2" id="bS2">コピーする</button>
+</article><article class="card" id="pS3">
+  <div class="head"><span class="no">S3</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>勤怠ソフトの出力を集計表にまとめる</h3>
+  <div class="file">添付するファイル：<a href="data/02_%E5%8B%A4%E6%80%A0%E3%82%BD%E3%83%95%E3%83%88%E5%87%BA%E5%8A%9B_2026%E5%B9%B49%E6%9C%88.csv" download>02_勤怠ソフト出力_2026年9月.csv</a></div>
+  <pre id="tS3">添付のCSVは、勤怠ソフトから出力した9月分のデータです。社員ごとに次の表を作ってください。
+
+【列】社員番号／氏名／出勤日数／有給日数／実働時間の合計（退勤−出勤−休憩）／1日8時間を超えた時間の合計
+
+【ルール】
+・時間は「時間:分」で表す
+・退勤の打刻がないなど、計算できない行は計算に入れず、表のあとに一覧にする
+・計算のしかたを、表の下に短く書く</pre>
+  <button type="button" class="copy" data-target="tS3" id="bS3">コピーする</button>
+</article><article class="card" id="pS4">
+  <div class="head"><span class="no">S4</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>打ち合わせの書き起こしを、決まった項目でまとめる</h3>
+  <div class="file">添付するファイル：<a href="data/04_%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B%E6%9B%B8%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97_1%E5%9B%9E%E7%9B%AE.txt" download>04_打ち合わせ書き起こし_1回目.txt</a></div>
+  <pre id="tS4">添付は、お客様との打ち合わせ（1回目）の書き起こしです。次の項目で打ち合わせメモを作ってください。
+
+【項目】
+1 お客様名・日時・出席者
+2 今のシステム（機種・ソフトのバージョン・導入時期）
+3 ご要望（番号を付けて、1つずつ）
+4 帳票（請求書・納品書などの形）
+5 データの移し替え（件数・期間）
+6 締め日などの業務のルール
+7 台数・設置場所
+8 スケジュール
+9 ご予算
+10 決める人
+11 次回までにすること
+
+【ルール】
+・書き起こしにないことは書かない。推測したことは【推測】と付ける
+・話に出なかった項目は「未確認」と書く
+・最後に「次回までに聞くべきこと」を一覧にする</pre>
+  <button type="button" class="copy" data-target="tS4" id="bS4">コピーする</button>
+</article><article class="card" id="pS5">
+  <div class="head"><span class="no">S5</span><span class="demo">講師の画面で見せます</span></div>
+  <h3>【講師の画面】国税庁の新着から、給与計算に関係するものだけを毎朝まとめる</h3>
+  
+  <pre id="tS5">国税庁のホームページの新着情報を確認し、前日に掲載されたもののうち、給与計算ソフトに影響しそうなもの（源泉徴収、年末調整、法定調書、税率や様式の変更など）だけを一覧にしてください。
+
+【形式】掲載日／タイトル／URL／給与計算ソフトのどこに影響しそうか（1行）
+・該当がなければ「該当なし」とだけ書く
+・推測で影響を書くときは【推測】と付ける
+
+（この指示を、毎朝8:00に実行するよう登録する）</pre>
+  <button type="button" class="copy" data-target="tS5" id="bS5">コピーする</button>
+</article></section><section id="k2"><h2><span class="eyebrow">2コマ目</span>ガードレールの組み方</h2><article class="card" id="pS6">
+  <div class="head"><span class="no">S6</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>2回目の打ち合わせで、正規データを更新する</h3>
+  <div class="file">添付するファイル：<a href="data/05_%E6%89%93%E3%81%A1%E5%90%88%E3%82%8F%E3%81%9B%E6%9B%B8%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97_2%E5%9B%9E%E7%9B%AE.txt" download>05_打ち合わせ書き起こし_2回目.txt</a></div>
+  <pre id="tS6">下の【正規データ】は、1回目の打ち合わせメモを担当SEが確認したものです。添付の2回目の書き起こしと比べて、次の順に出してください。
+
+① 変わったことの表（項目／前回の正規データ／今回の内容／書き起こしの該当の発言）
+② 保留になったこと（いつ決まるか）
+③ 今回新しくわかったこと
+④ まだ聞けていないこと
+⑤ 更新した正規データ（変わった箇所の頭に【更新】、保留の箇所に【保留】を付ける）
+
+【ルール】
+・書き起こしにないことは書かない
+・前回と今回で食い違うときは、今回の発言を優先し、必ず①に載せる
+
+【正規データ】
+（S4で作って、自分で確認・修正したメモを、ここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="tS6" id="bS6">コピーする</button>
+</article><article class="card" id="pS7">
+  <div class="head"><span class="no">S7</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>AIを使うときの社内ルールの下書きを作る</h3>
+  
+  <pre id="tS7">あなたは中小企業の情報管理の担当者です。システム開発とサポートをしている会社（SE・プログラマー・インストラクター・事務）で、生成AIを使うときの社内ルールの下書きを作ってください。
+
+【入れてほしいこと】
+・AIに入れてよい情報の区分（青：入れてよい／黄：条件つきで入れてよい／赤：入れない）と、それぞれの例
+・アカウントの扱い（共有しない、会社の契約を使う など）
+・AIの出力を使うときの確認の責任（誰が、何を確かめるか）
+・お客様との打ち合わせの録音と、その書き起こし・要約の扱い
+・困ったとき、迷ったときに相談する先
+
+【形式】A4で1枚に収まる長さ。「〜してよい」という書き方を中心に</pre>
+  <button type="button" class="copy" data-target="tS7" id="bS7">コピーする</button>
+</article></section><section id="k3"><h2><span class="eyebrow">3コマ目</span>SEの時間を生む</h2><article class="card" id="pS8">
+  <div class="head"><span class="no">S8</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>インストからの質問に、正規データだけで答える</h3>
+  
+  <pre id="tS8">あなたは、インストラクターからの質問に答える係です。下の【正規データ】だけを根拠に、質問に答えてください。
+
+【ルール】
+・答えには、根拠にした正規データの項目を必ず付ける
+・正規データに書いていないことは「正規データに記載なし。担当SEに確認してください」と答える
+・【保留】の項目は、保留であることと、いつ決まる予定かを伝える
+
+【質問】
+1 請求書は、今の形のままでいいんですよね？
+2 締め日は、得意先ごとに設定できるようにするんですか？
+3 倉庫の端末は、ネットワークの工事が必要ですか？
+4 今のソフトのバージョンは何ですか？
+
+【正規データ】
+（S6で更新し、自分で確認した正規データを、ここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="tS8" id="bS8">コピーする</button>
+</article><article class="card" id="pS9">
+  <div class="head"><span class="no">S9</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>問い合わせ履歴から、言い方が違っても似た対応を探す</h3>
+  <div class="file">添付するファイル：<a href="data/03_%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B%E5%B1%A5%E6%AD%B4_%E6%9E%B6%E7%A9%BA.csv" download>03_問い合わせ履歴_架空.csv</a></div>
+  <pre id="tS9">添付のCSVは、これまでの問い合わせ履歴です。今、お客様から次の電話がありました。
+
+【今回の問い合わせ】
+「朝、事務コンをつけたら、画面が真っ暗で何も出ないんです」
+
+過去の履歴から、参考になる対応を探してください。
+・「真っ暗」という言葉がなくても、意味が近いものを含める
+・似ているが原因が違いそうなもの（例：明るさの設定）は、分けて示す
+・受付番号を必ず付ける
+・最後に、電話でお客様に確認する順番を、短い質問の形で5つ以内にまとめる</pre>
+  <button type="button" class="copy" data-target="tS9" id="bS9">コピーする</button>
+</article><article class="card" id="pS10">
+  <div class="head"><span class="no">S10</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>仕様書から、インスト（操作説明）の進め方を出す</h3>
+  <div class="file">添付するファイル：<a href="data/06_%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E4%BB%95%E6%A7%98%E6%9B%B8_%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E9%A3%9F%E5%93%81%E6%A7%98.docx" download>06_カスタマイズ仕様書_サンプル食品様.docx</a></div>
+  <pre id="tS10">添付の仕様書をもとに、お客様への操作説明（インスト）の進め方を3パターン作ってください。
+
+【考え方】
+・設定や登録が前提になっている機能は、先に説明する
+・説明の量が多い機能は、1回目に詰め込まない
+・1回の説明は90分以内
+・【保留】の項目は、決まってから説明する
+
+【各パターンに書くこと】
+回ごとの内容と時間の目安／このパターンの良い点／注意点
+
+最後に、あなたならどのパターンを勧めるかと、その理由を書いてください。</pre>
+  <button type="button" class="copy" data-target="tS10" id="bS10">コピーする</button>
+</article><article class="card" id="pS11">
+  <div class="head"><span class="no">S11</span><span class="demo">講師の画面で見せます</span></div>
+  <h3>【講師の画面】S10のやり方を、スキル（手順書）にする</h3>
+  
+  <pre id="tS11">さきほどの「仕様書からインストの進め方を出す」作業を、次からは「仕様書からインストの流れを作って」の一言で、同じ形で出せるようにしたいです。この作業のスキル（手順書）を作ってください。
+
+・入力：仕様書（Word・PDF）
+・出力：3パターンの進め方、良い点・注意点、おすすめ
+・守ること：設定が前提の機能を先に／量の多い説明は分ける／90分以内／保留は後回し／仕様書にないことは書かない</pre>
+  <button type="button" class="copy" data-target="tS11" id="bS11">コピーする</button>
+</article></section><section id="k4"><h2><span class="eyebrow">4コマ目</span>生まれた時間で作る</h2><article class="card" id="pS12">
+  <div class="head"><span class="no">S12</span><span class="demo">講師の画面で見せます</span></div>
+  <h3>【講師の画面】資料なしでSTEPLANを書かせてみる</h3>
+  
+  <pre id="tS12">東芝テックの事務コンで使われているSTEPLANで、得意先マスタから締め日が20日の得意先だけを一覧で印刷するプログラムを書いてください。
+
+（出てきたら、続けて聞く）
+このコードの書き方は、どの資料にもとづいていますか？確かなところと、推測で書いたところを分けてください。</pre>
+  <button type="button" class="copy" data-target="tS12" id="bS12">コピーする</button>
+</article><article class="card" id="pS13">
+  <div class="head"><span class="no">S13</span><span class="demo">講師の画面で見せます</span></div>
+  <h3>【講師の画面】AIが毎回読む「書き方メモ」を作らせる（暫定）</h3>
+  
+  <pre id="tS13">添付のマニュアル（テキスト）とサンプルのプログラムをもとに、AIがプログラムを書く前に毎回読む「書き方メモ」を作ってください。
+
+【見出し】
+1 文法の要点（変数・繰り返し・条件・ファイルの読み書き・帳票の印刷）
+2 よく使う書き方（サンプルから抜き出して、出典を付ける）
+3 やってはいけないこと・よくある間違い
+4 まだ確かでないこと（【要確認】を付ける）
+
+【ルール】
+・マニュアルとサンプルにないことは書かない
+・人が確認しやすいよう、各項目に出典（ファイル名・ページ）を付ける</pre>
+  <button type="button" class="copy" data-target="tS13" id="bS13">コピーする</button>
+</article><article class="card" id="pS14">
+  <div class="head"><span class="no">S14</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>「未対応だけ表示」できる対応管理の画面を作る</h3>
+  
+  <pre id="tS14">下の契約一覧で、対応の管理をする画面を作ってください。
+
+・各行に「対応済」のチェックを付けられる
+・チェックを付けても行は消さない（対応した記録も残したい）
+・「未対応だけ表示」と「すべて表示」を切り替えられる
+・満了日が近い順に並べる
+・データは画面の中だけで、どこにも保存しない（練習用）
+
+【契約一覧】
+（S1で作った表を、ここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="tS14" id="bS14">コピーする</button>
+</article><article class="card" id="pS15">
+  <div class="head"><span class="no">S15</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>作ったツールを社内で使う前に、足りないものを洗い出す</h3>
+  
+  <pre id="tS15">さきほど作った対応管理の画面を、社内の5人で実際に使うとします。そのために足りないものを、次の観点で洗い出してください。
+
+・誰が使えるか（ログイン、権限）
+・データをどこに置くか、消えたときにどう戻すか（保存先、バックアップ）
+・誰がいつ何を変えたか（履歴）
+・お客様の情報を入れてよいか
+・作った人がいなくなったときに、誰が直せるか
+
+それぞれ「最低限やること」と「余裕があればやること」に分けてください。</pre>
+  <button type="button" class="copy" data-target="tS15" id="bS15">コピーする</button>
+</article><article class="card" id="pS16">
+  <div class="head"><span class="no">S16</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>自分の仕事のどこで時間を生むかを考える</h3>
+  
+  <pre id="tS16">私の仕事について相談させてください。AIを使って、毎週の時間を生み出したいです。
+
+【私の仕事】（例：SE。お客様との打ち合わせ、設計書づくり、設置）
+【毎週くり返している作業と、かかっている時間】（例：打ち合わせメモの清書 2時間）
+【困っていること】
+
+次の順で答えてください。
+① AIで時間を生めそうな作業を、効果の大きい順に3つ
+② それぞれ、最初の1週間で試すこと
+③ それぞれ、AIに入れてはいけない情報と、人が確認すべきこと</pre>
+  <button type="button" class="copy" data-target="tS16" id="bS16">コピーする</button>
+</article></section>
+<footer>演習のデータ・会社名はすべて架空です。実在のお客様の名前・連絡先・金額・契約内容は、無料版のAIに入力しないでください。<br>がだんだん株式会社</footer>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target), text=el.textContent;
+    function ok(){b.textContent='コピーしました';b.classList.add('done');setTimeout(function(){b.textContent='コピーする';b.classList.remove('done')},2000)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='選択しました。Ctrl+Cでコピー'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fallback)}else{fallback()}
+  });
+});
+</script>
+</body>
+</html>
