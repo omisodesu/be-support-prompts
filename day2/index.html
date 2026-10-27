@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Day2 プロンプト集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=BIZ+UDGothic:wght@400&display=swap">
+<style>
+/* 研修テキストの続きとして読む一列のノート。朱は番号とボタンだけ */
+:root{
+  --bg:#fbfbfa; --paper:#ffffff; --fg:#1f1f1f; --sub:#5f5b58; --line:#d9d5d2; --acc:#b8431e; --acc-ink:#ffffff; --code:#f4f2f0;
+  --f-body:"BIZ UDPGothic","Hiragino Sans","Yu Gothic",sans-serif; --f-mono:"BIZ UDGothic","Hiragino Sans","Yu Gothic",monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#161514;--paper:#1f1e1c;--fg:#ecebe9;--sub:#a9a4a0;--line:#3a3734;--acc:#e0714a;--acc-ink:#1a0f0a;--code:#262422;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#161514;--paper:#1f1e1c;--fg:#ecebe9;--sub:#a9a4a0;--line:#3a3734;--acc:#e0714a;--acc-ink:#1a0f0a;--code:#262422;color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.7;padding-inline:16px;padding-block:20px 48px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+header h1{font-size:1.45rem;line-height:1.35;margin:4px 0 6px;text-wrap:balance}
+header p{margin:0;color:var(--sub);font-size:.92rem}
+.kicker{color:var(--acc);font-weight:700;font-size:.8rem;letter-spacing:.06em}
+.howto{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:14px 16px;font-size:.92rem}
+.howto ol{margin:6px 0 0;padding-left:1.3em}
+.jump{display:flex;flex-wrap:wrap;gap:6px}
+.jump a{min-width:2.4em;text-align:center;padding:4px 0;border:1px solid var(--line);border-radius:6px;color:var(--fg);text-decoration:none;font-variant-numeric:tabular-nums;background:var(--paper)}
+section{display:flex;flex-direction:column;gap:14px}
+h2{font-size:1.15rem;margin:8px 0 0;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.eyebrow{font-size:.78rem;color:var(--acc);letter-spacing:.06em}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;scroll-margin-top:12px;min-width:0}
+.head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.no{font-weight:700;color:var(--acc);font-variant-numeric:tabular-nums}
+.tool{font-size:.85rem;color:var(--sub);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+h3{margin:0;font-size:1.02rem;line-height:1.45}
+pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--f-mono);font-size:.86rem;line-height:1.65;background:var(--code);border-radius:8px;padding:12px;user-select:all;-webkit-user-select:all}
+.copy{align-self:stretch;appearance:none;border:0;border-radius:8px;background:var(--acc);color:var(--acc-ink);font:700 1rem var(--f-body);padding:12px;cursor:pointer}
+.copy.done{background:var(--fg);color:var(--bg)}
+.copy:focus-visible,.jump a:focus-visible,.tool:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.tbl{overflow-x:auto;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-numeric:tabular-nums}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:700;border-bottom:1.5px solid var(--fg)}
+.note{margin:0;color:var(--sub);font-size:.78rem}
+footer{color:var(--sub);font-size:.8rem;border-top:1px solid var(--line);padding-top:12px}
+.demo{font-size:.78rem;color:var(--sub);border:1px dashed var(--line);border-radius:999px;padding:1px 9px}
+.file{font-size:.85rem;color:var(--sub)}
+.file a{color:var(--acc)}
+.dl{display:flex;flex-direction:column;gap:6px;margin:0;padding:0;list-style:none}
+.dl a{display:block;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--paper);color:var(--fg);text-decoration:none}
+.dl a span{display:block;font-size:.8rem;color:var(--sub)}
+details{border:1px solid var(--line);border-radius:10px;background:var(--paper);padding:10px 14px}
+details summary{cursor:pointer;font-weight:700}
+details[open]{display:flex;flex-direction:column;gap:8px}
+details pre{max-height:320px;overflow:auto}
+*{box-sizing:border-box}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="kicker">2026年11月2日　営業職向け 生成AI業務活用研修（中級）Day2</div>
+  <h1>ビー・サポート様 研修用プロンプト集（Day2）</h1>
+  <p>スライドの「プロンプト No.」と同じ番号です（Day2は No.21〜38）。</p>
+</header>
+<div class="howto"><strong>使い方（スマホ）</strong>
+  <ol><li>演習のファイルをダウンロードする（または、下の「データをコピー」から貼る）</li><li>番号のボタンで、使うプロンプトへ移動し「コピーする」</li><li>Claudeのアプリに貼り付け、＋ボタンからファイルを添付して送る</li><li>（　）の部分は、自分の内容に書き換える</li></ol>
+</div>
+<nav class="jump" aria-label="プロンプト番号"><a href="#p21">21</a><a href="#p22">22</a><a href="#p23">23</a><a href="#p24">24</a><a href="#p25">25</a><a href="#p26">26</a><a href="#p27">27</a><a href="#p28">28</a><a href="#p29">29</a><a href="#p30">30</a><a href="#p31">31</a><a href="#p32">32</a><a href="#p33">33</a><a href="#p34">34</a><a href="#p35">35</a><a href="#p36">36</a><a href="#p37">37</a><a href="#p38">38</a></nav>
+<section id="files"><h2><span class="eyebrow">最初にダウンロード</span>演習で使うファイル（すべて架空）</h2>
+<ul class="dl"><li><a href="data/%E5%95%86%E8%AB%87%E6%9B%B8%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97_%E2%97%8B%E2%97%8B%E7%B2%BE%E5%B7%A5%E6%A7%98_1%E5%9B%9E%E7%9B%AE.txt" download>商談書き起こし_○○精工様_1回目.txt<span>No.22〜24・31で使う</span></a></li><li><a href="data/%E5%A3%B2%E4%B8%8A%E5%AE%9F%E7%B8%BE_2026%E5%B9%B44%E3%80%9C9%E6%9C%88.xlsx" download>売上実績_2026年4〜9月.xlsx<span>No.26・27で使う（前年同期のシート入り）</span></a></li><li><a href="data/%E6%A1%88%E4%BB%B6%E3%83%AA%E3%82%B9%E3%83%88_2026%E5%B9%B410%E6%9C%88.xlsx" download>案件リスト_2026年10月.xlsx<span>No.28で使う</span></a></li></ul>
+<details><summary>商談書き起こし（コピーして貼る用）</summary><pre id="c1">【研修用の架空データです。Day1のロープレをもとに作成】
+商談書き起こし（1回目）
+日時：2026年10月26日（月）10:00〜10:30
+場所：○○精工株式会社 様 事務所
+出席：お客様（社長）、当社（営業 青山）
+
+青山：本日はお時間いただきありがとうございます。今お使いの複合機のリースが、来年9月で満了になりますので、そのご相談に伺いました。
+社長：もう6年か。でもまだ全然使えるしね。壊れてもいないし。
+青山：ありがとうございます。大きなトラブルなく使っていただけているのは何よりです。
+社長：正直、再リースでいいかなと思ってる。コストは上げたくないんだよ。
+青山：承知しました。参考までに、今のリース料が月12,000円で、入れ替えた場合のお見積りは月13,500円の見込みです。
+社長：1,500円上がるのか。今すぐ困ってないものにお金を足すのは、やっぱり引っかかるね。
+青山：おっしゃる通りです。ちなみに、部材などの仕入れ値は上がっていませんか？
+社長：上がってるよ。どこも同じだね。
+青山：ありがとうございます。今の使い方も確認させてください。A3の図面のコピーやスキャンが多いと伺っていますが。
+社長：多いね。図面は全部A3。現場に配るのも、お客さんに送るのも図面。
+青山：図面はカラーで印刷されることも多いですか？
+社長：どうかな。色がついてる図面もあるから、そのままカラーで出してると思うよ。細かいところは事務に聞いてもらわないとわからない。
+青山：印刷の枚数は、増えている感じはありますか？
+社長：減ってる気はするけど、まだまだある。それもちゃんと聞いてもらった方がいい。
+青山：承知しました。カウンターの記録も確認させていただきます。
+社長：あと、最後は会長に相談しないと決められないから。会長は経理も見てるし、数字にうるさいよ。
+青山：では、会長様にもご覧いただける資料をお作りします。次回、事務の方から使い方をお聞きしてもよろしいですか？
+社長：いいよ。月曜の午後なら事務も空いてると思う。
+青山：では、11月9日（月）13時30分に伺います。事務の方から、図面の印刷とスキャンの使い方をお聞きします。
+社長：わかった。長くならないようにね。
+青山：はい、30分以内にいたします。本日はありがとうございました。
+</pre><button type="button" class="copy" data-target="c1">コピーする</button></details><details><summary>売上実績 2026年4〜9月（CSV）</summary><pre id="c2">年月,担当,分野,件数,売上(千円),粗利(千円)
+2026/04,青山,複合機,3,2905,877
+2026/04,青山,ビジネスホン,1,721,213
+2026/04,青山,事務コン,2,2562,928
+2026/04,青山,POSレジ,3,1351,346
+2026/04,青山,ネットワーク機器,1,420,145
+2026/04,井上,複合機,2,2015,603
+2026/04,井上,ビジネスホン,1,765,243
+2026/04,井上,事務コン,4,4926,1593
+2026/04,井上,POSレジ,2,918,236
+2026/04,井上,ネットワーク機器,2,741,238
+2026/04,宇野,複合機,0,0,0
+2026/04,宇野,ビジネスホン,4,2468,741
+2026/04,宇野,事務コン,1,1174,435
+2026/04,宇野,POSレジ,2,862,216
+2026/04,宇野,ネットワーク機器,3,1156,359
+2026/04,遠藤,複合機,2,2093,619
+2026/04,遠藤,ビジネスホン,2,1413,406
+2026/04,遠藤,事務コン,2,3250,1207
+2026/04,遠藤,POSレジ,2,1004,240
+2026/04,遠藤,ネットワーク機器,3,1117,345
+2026/05,青山,複合機,3,2556,787
+2026/05,青山,ビジネスホン,4,2369,697
+2026/05,青山,事務コン,1,1164,431
+2026/05,青山,POSレジ,2,915,227
+2026/05,青山,ネットワーク機器,2,935,281
+2026/05,井上,複合機,3,2900,886
+2026/05,井上,ビジネスホン,0,0,0
+2026/05,井上,事務コン,4,4679,1673
+2026/05,井上,POSレジ,0,0,0
+2026/05,井上,ネットワーク機器,1,351,114
+2026/05,宇野,複合機,1,1057,312
+2026/05,宇野,ビジネスホン,4,2261,701
+2026/05,宇野,事務コン,0,0,0
+2026/05,宇野,POSレジ,2,1153,286
+2026/05,宇野,ネットワーク機器,1,465,136
+2026/05,遠藤,複合機,1,891,240
+2026/05,遠藤,ビジネスホン,2,1529,445
+2026/05,遠藤,事務コン,1,1434,475
+2026/05,遠藤,POSレジ,5,2304,584
+2026/05,遠藤,ネットワーク機器,3,1389,477
+2026/06,青山,複合機,2,2081,568
+2026/06,青山,ビジネスホン,2,1323,436
+2026/06,青山,事務コン,2,2689,899
+2026/06,青山,POSレジ,1,444,103
+2026/06,青山,ネットワーク機器,1,441,135
+2026/06,井上,複合機,0,0,0
+2026/06,井上,ビジネスホン,1,621,180
+2026/06,井上,事務コン,3,4675,1602
+2026/06,井上,POSレジ,2,823,218
+2026/06,井上,ネットワーク機器,0,0,0
+2026/06,宇野,複合機,2,1775,531
+2026/06,宇野,ビジネスホン,2,1063,287
+2026/06,宇野,事務コン,3,3890,1443
+2026/06,宇野,POSレジ,3,1685,430
+2026/06,宇野,ネットワーク機器,3,1276,369
+2026/06,遠藤,複合機,3,2409,666
+2026/06,遠藤,ビジネスホン,3,2120,595
+2026/06,遠藤,事務コン,2,2381,842
+2026/06,遠藤,POSレジ,4,1907,490
+2026/06,遠藤,ネットワーク機器,2,869,301
+2026/07,青山,複合機,5,5147,1564
+2026/07,青山,ビジネスホン,1,697,190
+2026/07,青山,事務コン,2,3057,1001
+2026/07,青山,POSレジ,0,0,0
+2026/07,青山,ネットワーク機器,2,814,286
+2026/07,井上,複合機,4,3246,993
+2026/07,井上,ビジネスホン,1,751,215
+2026/07,井上,事務コン,3,44570,1468
+2026/07,井上,POSレジ,1,488,128
+2026/07,井上,ネットワーク機器,2,803,268
+2026/07,宇野,複合機,3,2304,635
+2026/07,宇野,ビジネスホン,5,2669,758
+2026/07,宇野,事務コン,0,0,0
+2026/07,宇野,POSレジ,2,892,203
+2026/07,宇野,ネットワーク機器,4,1394,435
+2026/07,遠藤,複合機,2,1820,475
+2026/07,遠藤,ビジネスホン,2,1381,402
+2026/07,遠藤,事務コン,1,1600,541
+2026/07,遠藤,POSレジ,4,2252,598
+2026/07,遠藤,ネットワーク機器,1,432,138
+2026/08,青山,複合機,4,3542,908
+2026/08,青山,ビジネスホン,2,1356,429
+2026/08,青山,事務コン,1,1203,408
+2026/08,青山,POSレジ,2,1020,279
+2026/08,青山,ネットワーク機器,3,1220,396
+2026/08,井上,複合機,3,2174,551
+2026/08,井上,ビジネスホン,0,0,0
+2026/08,井上,事務コン,3,4078,1425
+2026/08,井上,POSレジ,0,0,0
+2026/08,井上,ネットワーク機器,2,840,277
+2026/08,宇野,複合機,1,977,252
+2026/08,宇野,ビジネスホン,4,2610,740
+2026/08,宇野,事務コン,3,4745,1511
+2026/08,宇野,POSレジ,4,1987,479
+2026/08,宇野,ネットワーク機器,1,491,157
+2026/08,遠藤,複合機,3,2386,611
+2026/08,遠藤,ビジネスホン,3,2323,629
+2026/08,遠藤,事務コン,2,2691,928
+2026/08,遠藤,POSレジ,3,1436,364
+2026/08,遠藤,ネットワーク機器,1,409,129
+2026/09,青山,複合機,3,2572,775
+2026/09,青山,ビジネスホン,1,694,220
+2026/09,青山,事務コン,0,0,0
+2026/09,青山,POSレジ,1,414,107
+2026/09,青山,ネットワーク機器,3,1308,392
+2026/09,井上,複合機,3,2378,661
+2026/09,井上,ビジネスホン,0,0,0
+2026/09,井上,事務コン,5,6788,2418
+2026/09,井上,POSレジ,0,0,0
+2026/09,井上,ネットワーク機器,3,1430,470
+2026/09,宇野,複合機,1,1028,306
+2026/09,宇野,ビジネスホン,2,1470,455
+2026/09,宇野,事務コン,1,1258,462
+2026/09,宇野,POSレジ,2,918,209
+2026/09,宇野,ネットワーク機器,3,1395,414
+2026/09,遠藤,複合機,1,962,245
+2026/09,遠藤,ビジネスホン,1,560,164
+2026/09,遠藤,事務コン,2,2249,782
+2026/09,遠藤,POSレジ,2,934,221
+2026/09,遠藤,ネットワーク機器,1,494,153
+</pre><button type="button" class="copy" data-target="c2">コピーする</button></details><details><summary>前年同期 2025年4〜9月（CSV）</summary><pre id="c3">年月,分野,売上(千円)
+2025/04,複合機,7956
+2025/04,ビジネスホン,4471
+2025/04,事務コン,10406
+2025/04,POSレジ,4049
+2025/04,ネットワーク機器,3186
+2025/05,複合機,6735
+2025/05,ビジネスホン,5550
+2025/05,事務コン,7587
+2025/05,POSレジ,4056
+2025/05,ネットワーク機器,3059
+2025/06,複合機,6331
+2025/06,ビジネスホン,5626
+2025/06,事務コン,14370
+2025/06,POSレジ,3945
+2025/06,ネットワーク機器,2176
+2025/07,複合機,11885
+2025/07,ビジネスホン,4634
+2025/07,事務コン,4100
+2025/07,POSレジ,3238
+2025/07,ネットワーク機器,3579
+2025/08,複合機,9093
+2025/08,ビジネスホン,5361
+2025/08,事務コン,13412
+2025/08,POSレジ,3977
+2025/08,ネットワーク機器,3316
+2025/09,複合機,7421
+2025/09,ビジネスホン,2914
+2025/09,事務コン,9083
+2025/09,POSレジ,2303
+2025/09,ネットワーク機器,4047
+</pre><button type="button" class="copy" data-target="c3">コピーする</button></details><details><summary>案件リスト（CSV）</summary><pre id="c4">案件ID,お客様,業種,分野,今の機器（使用年数）,リース満了,状況,見込み金額(千円),担当,最終接点,次の行動
+P101,○○精工株式会社,金属加工,複合機,bizhub C250i（6年）,2027/09,提案中,1605,青山,2026/10/26 初回訪問,11/9(月)13:30 事務の方にヒアリング
+P102,サンプル商事株式会社,卸売,複合機,他社カラー機（7年）,2027/02,未着手,1250,青山,2026/05 定期訪問,満了の予告と現状確認
+P103,サンプル食品株式会社,食品卸,事務コン,事務コン SJ（10年）,2027/01,見積提出,2800,井上,2026/10/20 見積提出,見積の回答確認
+P104,サンプル建設株式会社,建設,ネットワーク機器,UTM（5年）,2027/03,提案中,680,宇野,2026/10/15 提案,比較資料の提出
+P105,サンプル運輸株式会社,運送,ビジネスホン,ビジネスホン（8年）,2026/11,見積提出,1100,宇野,2026/10/22 見積提出,決裁者への説明日程
+P106,サンプル会計事務所,税理士,事務コン,事務コン SJ（4年）,2028/12,未着手,0,井上,2026/04 保守点検,—
+P107,サンプル薬局,調剤薬局,POSレジ,POSレジ（6年）,2026/12,提案中,820,遠藤,2026/10/05 提案,補助金の要件を案内
+P108,サンプル電機株式会社,製造,複合機,bizhub C360i（4年）,2027/02,未着手,1480,青山,2026/03 定期訪問,満了の予告
+P109,サンプル印刷株式会社,印刷,事務コン,事務コン SO（6年）,2026/04,受注,3100,井上,2026/09/30 受注,納品日程の調整
+P110,サンプル歯科医院,歯科,ネットワーク機器,UTM（2年）,2029/05,未着手,0,宇野,2026/06 保守点検,—
+P111,サンプル保育園,保育,複合機,bizhub C251i（1年）,2030/08,受注,0,青山,2025/09 導入,—
+P112,サンプル工業株式会社,製造,事務コン,事務コン SJ（8年）,2026/10,失注,2600,井上,2026/09/12 失注,失注理由の記録
+P113,サンプル物流株式会社,倉庫,ビジネスホン,ビジネスホン（9年）,2027/04,未着手,900,宇野,2026/02 定期訪問,満了の予告
+P114,サンプル設計事務所,設計,複合機,他社A3カラー機（6年）,2027/01,提案中,1700,青山,2026/10/08 提案,A3図面の印刷枚数を確認
+P115,サンプル商店,小売,POSレジ,レジ（10年）,2026/12,見積提出,450,遠藤,2026/10/19 見積提出,見積の回答確認
+P116,サンプル農園,農業,ネットワーク機器,Wi-Fi機器,2027/06,未着手,250,宇野,2026/07 訪問,—
+P117,サンプル自動車株式会社,自動車整備,事務コン,事務コン SO（7年）,2027/03,提案中,2400,井上,2026/10/02 提案,デモの日程調整
+P118,サンプル製菓株式会社,菓子製造,POSレジ,POSレジ（5年）,2027/05,未着手,900,遠藤,2026/08 訪問,—
+P119,サンプル衣料株式会社,小売,複合機,bizhub C300i（5年）,2027/06,未着手,1300,青山,2026/04 定期訪問,—
+P120,サンプル税理士事務所,税理士,複合機,bizhub C251i（2年）,2029/11,受注,0,青山,2024/11 導入,—
+P121,サンプル介護株式会社,介護,ビジネスホン,ビジネスホン（6年）,2027/01,提案中,1050,宇野,2026/10/14 提案,補助金の対象か確認
+P122,サンプル塗装株式会社,製造,複合機,他社モノクロ機（8年）,2026/12,見積提出,980,青山,2026/10/21 見積提出,見積の回答確認
+P123,サンプル板金株式会社,製造,事務コン,事務コン SJ（9年）,2027/02,未着手,2700,井上,2026/01 保守点検,満了の予告
+P124,サンプル酒店,小売,POSレジ,レジ（8年）,2027/03,提案中,520,遠藤,2026/10/10 提案,インボイス対応の説明
+P125,サンプル住宅株式会社,不動産,ネットワーク機器,UTM（4年）,2027/08,未着手,700,宇野,2026/05 訪問,—
+</pre><button type="button" class="copy" data-target="c4">コピーする</button></details>
+</section>
+<section id="k1"><h2><span class="eyebrow">1コマ目</span>営業文書のコンテキスト設計と実習</h2><article class="card" id="p21">
+  <div class="head"><span class="no">No.21</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>材料なしで頼んでみる（比べるための悪い例）</h3>
+  
+  <pre id="t21">○○精工株式会社様に、複合機 bizhub C251i への入れ替えを提案する資料を作ってください。</pre>
+  <button type="button" class="copy" data-target="t21" id="b21">コピーする</button>
+</article><article class="card" id="p22">
+  <div class="head"><span class="no">No.22</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>5つの情報を入れて、提案書（A4・1枚）を作る</h3>
+  <div class="file">添付するファイル：<a href="data/%E5%95%86%E8%AB%87%E6%9B%B8%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97_%E2%97%8B%E2%97%8B%E7%B2%BE%E5%B7%A5%E6%A7%98_1%E5%9B%9E%E7%9B%AE.txt" download>商談書き起こし_○○精工様_1回目.txt</a></div>
+  <pre id="t22">下の5つの情報で、提案書を作ってください。
+
+【目的】次回訪問（11月9日）で社長に渡し、事務の方へのヒアリングの了承を確かなものにする
+【背景】添付の商談書き起こし（1回目）のとおり。社長は「今すぐ困っていないものにお金を足したくない」。A3図面のカラー印刷が多い可能性がある
+【対象者】○○精工株式会社 社長（60代・現場出身・細かい数字より結論）
+【形式】A4で1枚。見出しは「今の状況」「確かめたいこと」「確かめた後にお持ちするもの」の3つ。です・ます調
+【制約】
+・書き起こしにない数字は書かない（枚数・削減額は「次回確認」とする）
+・機種の性能の比較はしない（今の機械と大きな差がないため）
+・再リースを否定しない</pre>
+  <button type="button" class="copy" data-target="t22" id="b22">コピーする</button>
+</article><article class="card" id="p23">
+  <div class="head"><span class="no">No.23</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>対象者だけを変える（会長・経理向け）</h3>
+  
+  <pre id="t23">さきほどの提案書を、対象者だけ変えて作り直してください。
+
+【対象者】○○精工株式会社 会長（経理も担当。数字で判断する。現場の話は知らない）
+【変えること】
+・「再リース」と「入れ替え」を、同じ項目で並べた比較表を入れる（項目：月々の支払い、保守の内容、故障したときの対応、決算への影響）
+・数字が分からない欄は【次回確認】と書く。推測で埋めない
+・最後に「会長にご判断いただきたいこと」を1行で</pre>
+  <button type="button" class="copy" data-target="t23" id="b23">コピーする</button>
+</article><article class="card" id="p24">
+  <div class="head"><span class="no">No.24</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>作る前に、足りない情報を質問させる（要件確認）</h3>
+  
+  <pre id="t24">上司（営業課長）に出す「商談報告書」を作りたいです。ただし、すぐに作らないでください。
+
+まず、良い報告書を作るために足りない情報を、5つまで質問してください。
+・質問は1つずつ番号を付けて、短く
+・私が答えたら、それを使って報告書を作ってください
+
+【材料】添付の商談書き起こし（1回目）</pre>
+  <button type="button" class="copy" data-target="t24" id="b24">コピーする</button>
+</article><article class="card" id="p25">
+  <div class="head"><span class="no">No.25</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>使った指示を「型」として残す</h3>
+  
+  <pre id="t25">今日の練習で使った「5つの情報」の指示を、次から営業文書を作るときに使い回せる型にしてください。
+
+【形式】
+・【目的】【背景】【対象者】【形式】【制約】の5つの見出し
+・それぞれ、書き方の例を1行（営業文書の例で）
+・【　】の中を書き換えれば使えるように
+・最後に「作る前に、足りない情報があれば質問してください」の1文を入れる</pre>
+  <button type="button" class="copy" data-target="t25" id="b25">コピーする</button>
+</article></section><section id="k2"><h2><span class="eyebrow">2コマ目</span>Claude.ai / Coworkでの実践</h2><article class="card" id="p26">
+  <div class="head"><span class="no">No.26</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>Excel：売上データを集計・分析する</h3>
+  <div class="file">添付するファイル：<a href="data/%E5%A3%B2%E4%B8%8A%E5%AE%9F%E7%B8%BE_2026%E5%B9%B44%E3%80%9C9%E6%9C%88.xlsx" download>売上実績_2026年4〜9月.xlsx</a></div>
+  <pre id="t26">添付の売上実績（架空の営業部、2026年4〜9月、単位は千円）を集計してください。
+
+【作るもの】
+① 担当者別の表：件数・売上・粗利・粗利率
+② 分野別の表：件数・売上・粗利・粗利率。「前年同期」シートがあれば前年比も
+③ 気づいたことを3つ（それぞれ、根拠になる数字を付ける）
+
+【ルール】
+・計算はデータから行い、数字を推測で作らない
+・Excelファイルで出力する（できなければ表で）</pre>
+  <button type="button" class="copy" data-target="t26" id="b26">コピーする</button>
+</article><article class="card" id="p27">
+  <div class="head"><span class="no">No.27</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>Excel：別の方法で検算する</h3>
+  
+  <pre id="t27">さきほどの集計を、別の方法で確かめてください。
+
+① 担当者別の売上の合計と、分野別の売上の合計が一致するか
+② 月ごとの合計を足したものと、全体の合計が一致するか
+③ 粗利率が、ほかの行と比べて極端に低い・高い行はないか（入力ミスの疑い）
+
+おかしな行があれば、年月・担当・分野を示し、「どう直せばよいか」ではなく「誰に何を確かめるか」を書いてください。</pre>
+  <button type="button" class="copy" data-target="t27" id="b27">コピーする</button>
+</article><article class="card" id="p28">
+  <div class="head"><span class="no">No.28</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>Excel：案件リストから、今月動く案件を選ぶ</h3>
+  <div class="file">添付するファイル：<a href="data/%E6%A1%88%E4%BB%B6%E3%83%AA%E3%82%B9%E3%83%88_2026%E5%B9%B410%E6%9C%88.xlsx" download>案件リスト_2026年10月.xlsx</a></div>
+  <pre id="t28">添付の案件リスト（架空、2026年10月27日時点）から、今月中に動くべき案件を選んでください。
+
+【選び方】
+・リース満了が6か月以内（2027年4月まで）で、状況が「受注」「失注」以外
+・見込み金額の大きい順
+
+【形式】表：案件ID／お客様／満了／状況／見込み金額／担当／次の行動／この案件で気をつけること（1行）
+・リストにないことは書かない</pre>
+  <button type="button" class="copy" data-target="t28" id="b28">コピーする</button>
+</article><article class="card" id="p29">
+  <div class="head"><span class="no">No.29</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>Word：月次の営業報告書を作る</h3>
+  
+  <pre id="t29">ここまでの集計（No.26・27）と案件の選び出し（No.28）をもとに、営業部長あての月次営業報告書を作ってください。
+
+【目的】上半期（4〜9月）の実績と、今月の重点案件を部長に報告する
+【対象者】営業部長（数字は見慣れている。結論を先に知りたい）
+【形式】Wordファイル。A4で2枚以内。見出し：1 結論（3行）／2 実績（表）／3 分野別の状況／4 重点案件／5 課題と来月の行動
+【制約】
+・数字は集計表からそのまま引用する。検算で見つかった疑いのある数字は【要確認】と書く
+・推測で書いたことには【推測】を付ける</pre>
+  <button type="button" class="copy" data-target="t29" id="b29">コピーする</button>
+</article><article class="card" id="p30">
+  <div class="head"><span class="no">No.30</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>Word：報告書の一部だけを直す</h3>
+  
+  <pre id="t30">さきほどの報告書を、次のとおり直してください。ほかの部分は変えないでください。
+
+・「1 結論」を2行にする
+・「4 重点案件」を表にする（列：お客様／満了／状況／次の行動）
+・全体を、です・ます調にそろえる
+
+直したあと、どこを変えたかを箇条書きで教えてください。</pre>
+  <button type="button" class="copy" data-target="t30" id="b30">コピーする</button>
+</article><article class="card" id="p31">
+  <div class="head"><span class="no">No.31</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>PowerPoint：顧客向け提案資料を、5つの情報で作り直す</h3>
+  <div class="file">添付するファイル：<a href="data/%E5%95%86%E8%AB%87%E6%9B%B8%E3%81%8D%E8%B5%B7%E3%81%93%E3%81%97_%E2%97%8B%E2%97%8B%E7%B2%BE%E5%B7%A5%E6%A7%98_1%E5%9B%9E%E7%9B%AE.txt" download>商談書き起こし_○○精工様_1回目.txt</a></div>
+  <pre id="t31">○○精工株式会社様への提案資料（スライド7枚）を作ってください。
+
+【目的】再リースと入れ替えを比べて、社長と会長に判断してもらう材料を出す
+【背景】添付の商談書き起こし。A3図面のカラー印刷が多い可能性。社長はコストを上げたくない。会長が数字で決める
+【対象者】社長と会長（同じ資料を2人が見る）
+【形式】PowerPointファイル、7枚：1 表紙／2 今の状況／3 確かめたいこと／4 再リースと入れ替えの比較／5 カラー印刷の見直し案／6 進め方／7 次にお願いしたいこと
+【制約】書き起こしとカタログにない数字は書かない（【次回確認】とする）。白地に黒文字、強調は1色</pre>
+  <button type="button" class="copy" data-target="t31" id="b31">コピーする</button>
+</article></section><section id="k3"><h2><span class="eyebrow">3コマ目</span>総合演習と実務定着</h2><article class="card" id="p32">
+  <div class="head"><span class="no">No.32</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>報告書から、報告スライド（5枚）を作る</h3>
+  
+  <pre id="t32">さきほどの月次営業報告書（No.29・30）を、営業会議で使う報告スライド5枚にしてください。
+
+【形式】PowerPointファイル、5枚：1 結論／2 実績（表）／3 分野別の状況／4 重点案件／5 来月の行動
+【制約】
+・数字は報告書と同じものを使う。報告書にない数字は足さない
+・1枚に伝えることは1つ。文字は少なく</pre>
+  <button type="button" class="copy" data-target="t32" id="b32">コピーする</button>
+</article><article class="card" id="p33">
+  <div class="head"><span class="no">No.33</span><span class="demo">講師の画面で見せます</span></div>
+  <h3>【講師の画面】フォルダの2つのファイルから、報告書一式を一度に作る</h3>
+  
+  <pre id="t33">このフォルダの「売上実績」と「案件リスト」を使って、営業報告書一式を作ってください。
+
+① 集計表（Excel）：担当者別・分野別・前年比
+② 月次営業報告書（Word）：A4で2枚以内
+③ 報告スライド（PowerPoint）：5枚
+
+【ルール】
+・②③の数字は、すべて①の集計表から引用する
+・最後に、①②③の数字が一致しているかを照合し、一覧で報告する
+・入力ミスの疑いがあるデータは使う前に知らせる</pre>
+  <button type="button" class="copy" data-target="t33" id="b33">コピーする</button>
+</article><article class="card" id="p34">
+  <div class="head"><span class="no">No.34</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>品質チェック：確認の観点で点検する</h3>
+  
+  <pre id="t34">下の【文書】を、次の観点で点検してください。直すのではなく、気になる箇所を表にしてください（観点／該当箇所／理由／確かめる相手）。
+
+【観点】
+・数字：集計表や元データと一致しているか
+・固有名詞：お客様名・機種名・担当者名
+・日付と曜日：日付と曜日が合っているか（例：2026年11月9日は月曜日）
+・条件：「オプション」「〜の場合」が抜けていないか
+・推測：根拠のない言い切りがないか
+
+【文書】
+（点検したい報告書・提案書・メールを、ここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="t34" id="b34">コピーする</button>
+</article><article class="card" id="p35">
+  <div class="head"><span class="no">No.35</span><a class="tool" href="https://chatgpt.com/" target="_blank" rel="noopener">ChatGPTで使う ↗</a></div>
+  <h3>別のAIで確かめる（確かめ役）</h3>
+  
+  <pre id="t35">次の文書は、別のAIが作った営業報告書です。上司に出す前に、厳しく点検してください。
+
+・数字の食い違い、計算の誤り
+・根拠のない言い切り
+・読み手（営業部長）が疑問に思いそうな箇所
+
+を、重要な順に5つまで挙げてください。
+
+【文書】
+（Claudeが作った報告書を、ここに貼り付け）</pre>
+  <button type="button" class="copy" data-target="t35" id="b35">コピーする</button>
+</article><article class="card" id="p36">
+  <div class="head"><span class="no">No.36</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>今日の指示を、社内で使い回せる型（資産）にする</h3>
+  
+  <pre id="t36">今日の研修で使った指示（下に貼り付け）を、営業部で使い回せる「プロンプト集」に整えてください。
+
+【形式】1つの指示ごとに
+・名前（例：月次営業報告書を作る）
+・使う場面（1行）
+・指示の本文（【　】で書き換える部分を示す）
+・使ったあとに人が確かめること（1〜2行）
+
+【今日の指示】
+（No.22・24・26・29 など、使ったものを貼り付け）</pre>
+  <button type="button" class="copy" data-target="t36" id="b36">コピーする</button>
+</article><article class="card" id="p37">
+  <div class="head"><span class="no">No.37</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>自分の業務への適用計画を作る</h3>
+  
+  <pre id="t37">私の営業の仕事に、AIをどう使うかの計画を作りたいです。
+
+【私の担当】（例：複合機・ビジネスホン。担当のお客様は約○社）
+【毎月くり返している書類づくり】（例：月次報告、見積送付のメール、提案書）
+【困っていること】
+
+次の順で、A4・1枚にまとめてください。
+① AIに任せる作業を3つ（効果の大きい順）と、使う型（今日のプロンプト番号）
+② 来週から1か月の進め方（週ごと）
+③ AIに入れない情報と、人が確かめること</pre>
+  <button type="button" class="copy" data-target="t37" id="b37">コピーする</button>
+</article></section><section id="k4"><h2><span class="eyebrow">実務適用演習</span>営業報告書一式の完成</h2><article class="card" id="p38">
+  <div class="head"><span class="no">No.38</span><a class="tool" href="https://claude.ai/" target="_blank" rel="noopener">Claudeで使う ↗</a></div>
+  <h3>営業報告書一式を仕上げる</h3>
+  
+  <pre id="t38">今日作った3つ（集計表・月次営業報告書・報告スライド）を、営業報告書一式として仕上げます。
+
+① 3つの数字が一致しているかを照合し、ずれがあれば一覧にする
+② 【要確認】【推測】が残っている箇所を一覧にする
+③ ①②を直した最終版を出す（Excel・Word・PowerPoint）
+
+【3つの文書】
+（それぞれ添付、または貼り付け）</pre>
+  <button type="button" class="copy" data-target="t38" id="b38">コピーする</button>
+</article></section>
+<footer>演習のデータ・会社名はすべて架空です。実在のお客様の名前・連絡先・金額は、無料版のAIに入力しないでください。<br>がだんだん株式会社</footer>
+</div>
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  var label=b.textContent;
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.target), text=el.textContent;
+    function ok(){b.textContent='コピーしました';b.classList.add('done');setTimeout(function(){b.textContent=label;b.classList.remove('done')},2000)}
+    function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='選択しました。長押しでコピー'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fallback)}else{fallback()}
+  });
+});
+</script>
+</body>
+</html>
